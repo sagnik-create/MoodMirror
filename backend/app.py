@@ -1,12 +1,21 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI(title="Emotion Detection API")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # frontend origin
+    allow_credentials=True,
+    allow_methods=["*"],                      # allow all HTTP methods
+    allow_headers=["*"],                      # allow all headers
+)
 
 # Load model artifacts ONCE at startup
 model = joblib.load("emotion_model.pkl")
 vectorizer = joblib.load("tfidf_vectorizer.pkl")
-
-app = FastAPI(title="Emotion Detection API")
 
 # Request schema
 class TextInput(BaseModel):
