@@ -26,6 +26,10 @@ class PredictionOutput(BaseModel):
     emotion: str
     confidence: float
 
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 @app.post("/predict", response_model=PredictionOutput)
 def predict_emotion(data: TextInput):
     text = data.text.strip()
