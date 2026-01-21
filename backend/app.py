@@ -7,7 +7,6 @@ app = FastAPI(title="Emotion Detection API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # frontend origin
     allow_credentials=True,
     allow_methods=["*"],                      # allow all HTTP methods
     allow_headers=["*"],                      # allow all headers
