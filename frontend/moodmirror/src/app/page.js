@@ -16,7 +16,7 @@ export default function Home() {
     setConfidence(null);
 
     try {
-      const response = await fetch("https://moodmirror-backend-l7vc.onrender.com/predict", {
+      const response = await fetch("https://moodmirror-backend-main.onrender.com/predict", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
