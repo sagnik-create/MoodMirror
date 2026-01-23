@@ -11,14 +11,6 @@ The project demonstrates the complete lifecycle of an ML-powered system — from
 - **Frontend (Vercel):** https://mood-mirror-sand.vercel.app/  
 - **Backend (Render, FastAPI):** Deployed REST API for inference  
 
----
-
-## 📸 Screenshots
-![MoodMirror Home](<img width="1364" height="633" alt="Screenshot 2026-01-24 004911" src="https://github.com/user-attachments/assets/22a2a06a-65a8-4566-95c8-2cda3aa91029" />)
-![Prediction Result](<img width="1365" height="630" alt="image" src="https://github.com/user-attachments/assets/00cead81-d980-4a3a-9e8c-d1f068ef0a04" />)
-
----
-
 ## 🧠 Project Overview
 
 MoodMirror predicts the emotional category of a given text input using a trained NLP classification model.
@@ -290,8 +282,3 @@ GitHub: [https://github.com/sagnik-create](https://github.com/sagnik-create)
 
 * Kaggle for the dataset
 * FastAPI & Next.js open-source communities
-
-```
-
-This is where your “build in public” journey truly begins 🔥
-```
