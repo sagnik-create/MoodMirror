@@ -14,7 +14,7 @@ The project demonstrates the complete lifecycle of an ML-powered system — from
 ---
 
 ## 📸 Screenshots
-![MoodMirror Home](<img width="1364" height="636" alt="image" src="https://github.com/user-attachments/assets/57e0ba1a-5916-46ba-af41-5df8c4279794" />)
+![MoodMirror Home](<img width="1364" height="633" alt="Screenshot 2026-01-24 004911" src="https://github.com/user-attachments/assets/22a2a06a-65a8-4566-95c8-2cda3aa91029" />)
 ![Prediction Result](<img width="1365" height="630" alt="image" src="https://github.com/user-attachments/assets/00cead81-d980-4a3a-9e8c-d1f068ef0a04" />)
 
 ---
