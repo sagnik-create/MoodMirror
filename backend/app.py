@@ -4,14 +4,19 @@ import joblib
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.concurrency import run_in_threadpool
 
+
 app = FastAPI(title="Emotion Detection API")
+
+import os
+
+FRONTEND_URL = os.getenv("FRONTEND_URL", "*")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://mood-mirror-sand.vercel.app"],
+    allow_origins=[FRONTEND_URL] if FRONTEND_URL else ["*"],
     allow_credentials=True,
-    allow_methods=["*"],                      # allow all HTTP methods
-    allow_headers=["*"],                      # allow all headers
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # Load model artifacts ONCE at startup
