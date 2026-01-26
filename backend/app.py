@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.concurrency import run_in_threadpool
 
 app = FastAPI(title="Emotion Detection API")
 
@@ -31,23 +32,22 @@ def health():
     return {"status": "ok"}
 
 @app.post("/predict", response_model=PredictionOutput)
-def predict_emotion(data: TextInput):
+async def predict_emotion(data: TextInput):
+    return await run_in_threadpool(sync_predict, data)
+
+def sync_predict(data: TextInput):
     text = data.text.strip()
 
-    # Basic validation
     if not text:
         return {"emotion": "neutral", "confidence": 0.0}
 
-    # Vectorize input
     text_vec = vectorizer.transform([text])
-
-    # Predict
     prediction = model.predict(text_vec)[0]
     probabilities = model.predict_proba(text_vec)[0]
     confidence = float(max(probabilities))
 
-    # Safety fallback
     if confidence < 0.5:
         return {"emotion": "neutral", "confidence": confidence}
 
     return {"emotion": prediction, "confidence": confidence}
+
