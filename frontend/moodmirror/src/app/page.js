@@ -16,7 +16,10 @@ export default function Home() {
     setConfidence(null);
 
     try {
-      const response = await fetch("https://moodmirror-backend-main.onrender.com/predict", {
+      const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
+      const response = await fetch(`${API_URL}/predict`, {
+
         method: "POST",
         headers: {
           "Content-Type": "application/json",
